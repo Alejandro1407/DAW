@@ -1,0 +1,312 @@
+<?php session_start();?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script type="text/javascript" src="js/Jquery.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="js/bootstrap-material-design.js"></script>
+
+    <script type="text/javascript" src="js/Script_Index.js"></script>
+     <link rel="stylesheet" href="css/Style_Index.css">
+    <title>Sports Online</title>
+</head>
+<body>
+        <!---->
+<!--Main Navigation-->
+<header>
+ <nav class="navbar fixed-top  navbar-expand-lg navbar-dark indigo scrolling-navbar">
+    <div class="container">
+        <a class="navbar-brand" href="index.html">Sports Online</a>
+      
+             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+                     </button>
+                       <div class="collapse navbar-collapse ml-auto" id="navbarSupportedContent">
+                           <ul class="navbar-nav ml-auto">
+                           <li class="nav-item active">
+                 <a class="nav-link" href="index.html">
+                     <i class="fas fa-home"></i>Inicio
+               </a>
+               </li>
+               <li class="nav-item">
+                 <a class="nav-link" href="Catalogo.html"><i class="fas fa-archive"></i>Catalgo</a>
+               </li>
+               <li class="nav-item">
+                 <a class="nav-link" data-toggle="modal" data-target="#ContactForm"><i class="fas fa-comment-alt"></i>Contactenos</a>
+               </li>
+              
+                           </ul>
+                           <ul class="navbar-nav nav-flex-icons text-white" id="Sesion">
+   
+                               <!--        <div class="dropdown">
+                                       <button type="button" class="btn btn-indigo shadow-none dropdown-toggle text-lowercase p-2 m-0" data-toggle="dropdown"><?php echo "Hola," . strtolower ($_COOKIE["Usuario"]) ?></button>
+                                       
+                                             <div class="dropdown-menu">
+                                             <a class="dropdown-item" href="">Item 1</a>
+                                             <a class="dropdown-item" href="">Item 2</a>
+                                             <a class="dropdown-item" href="">Item 3</a>
+                                             <a class="dropdown-item" href="">Item 4</a>
+                                             <h5 class="dropdown-header">Cuenta</h5>
+                                             <a class="dropdown-item" href="Servidor/Cerrar.php"><i class="fas fa-sign-out-alt"></i> Cerrar Sesion</a>
+                                              
+                                       </div>
+                                       <a href="Carrito.php" type="button" class="btn btn-indigo shadow-none mt-1 m-0 p-1">
+                                       <i class="fas fa-2x  fa-shopping-cart"></i><span class="badge badge-light">0</span>
+                                       </a>
+                               </div>
+                             -->
+                                   <a class="indigo" data-toggle="modal" data-target="#modalLoginForm"><span class="mr-3"> <i class="fas fa-sign-in-alt"></i>Entrar</span></a>
+                                   <a class="indigo" data-toggle="modal" data-target="#modalRegisterForm"><span><i class="fas fa-user-plus"></i> Registrarse</span> </a>
+                                   
+                               </ul>
+                       </div>
+                   </div>
+                </nav>
+            
+            </header>
+<article id="content" class="container-fluid ">
+        <div class="text-center">
+                <h1 class="text-center">Catálogo</h1>
+        </div>
+        
+<div class="d-flex justify-content-start container-fluid">
+       <select id="Cantidad" class="custom-select w-auto">  
+                <option value="5">5</option>
+                <option value="4" selected>4</option>
+                <option value="3">3</option>
+                <option value="2">2</option>
+                <option value="1" class="d-none">1</option>             
+        </select>
+        <select id="Categoria" class="ml-1 custom-select w-auto">
+                        <option value="Ropa">Ropa</option>
+                        <option value="Zapatos">Zapatos</option>
+                        <option value="Ejercicio">Ejercicio</option>
+                        <option value="Deporte">Deporte</option>
+                        <option value="Salud">Salud</option>
+                        <option value="Todo" selected>Todo</option>                
+        </select>
+                <div class="input-group w-auto ml-auto">
+                                <div class="inner-addon right-addon">
+                                        <i class="fas fa-search"></i>
+                                        <input type="text" class="form-control" id="txtBuscar" placeholder="Buscar">
+                                </div>
+                </div>
+                               
+</div>
+
+    
+           <div id="Inventario" class="container-fluid row d-flex justify-content-around ml-auto mr-auto ">
+                     
+                              <!--Debe mostrar un animacion antes de los datos-->                                                                        
+                                                 <!--Aqui Se mostraran los datos-->
+                                <!--Sm solo se mostrara 1,Md se mostraran 2 y 3,Lg 2,3 y 4, Xl  se mostraran 2,3,4 y 5
+                                data-target="#centralModalSuccess" data-toggle="modal" 
+                         -->
+                </div>
+
+
+                <!--modal de confirmacion-->
+<div class="modal fade " id="centralModalSuccess" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-notify modal-danger" role="document">
+            <!--Content-->
+            <div class="modal-content">
+                <!--Header-->
+                <div class="modal-header">
+                    <h3 class="heading lead">Agregar al Carrito</h3>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true" class="text-white">&times;</span>
+                    </button>
+                </div>
+        
+                <!--Body-->
+                <div class="modal-body" >
+                    <div class="row pt-2 Body_Modal" id="Carrito_Add">
+                <div class="col-3"> 
+                        <p></p>
+                        <i class="fa fa-shopping-cart fa-4x"></i>
+                </div>
+                <div class="col-9">
+                        <p>¿Esta Seguro que desea Añadir?</p>
+                        <h2>
+                        <span class="badge" id="">Producto Cantidad Precio</span>
+                         </h2>
+                </div>
+
+            
+                  </div>
+                      <!--  -->
+            </div>
+      
+        
+                <!--Footer-->
+                <div class="modal-footer justify-content-center">
+                    <a type="button" data-target="#centralModalSuccess" data-toggle="modal" class="btn btn-danger"><i class="fas fa-shopping-cart"></i>Comprar</a>
+                    <a type="button" class="btn btn-outline-danger waves-effect" data-dismiss="modal">No, thanks</a>
+                 </div>
+            </div>
+            <!--/.Content-->
+        </div>
+    </div>
+       
+
+        <!--Modal para Inicio de Sesion-->
+        <div class="modal fade" id="modalLoginForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                        <div class="modal-dialog modal-dialog-centered" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header text-center">
+                                    <h4 class="modal-title w-100 font-weight-bold">Iniciar Sesion</h4>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body mx-3">
+                                    <div class="md-form mb-5">
+                                        <i class="fa fa-envelope prefix grey-text"></i>
+                                        <div class="inner-addon right-addon">
+                                                <i class="fas fa-check-circle d-none FormValid" id="LogInFormEmailValid"></i>
+                                                <i class="fas fa-times-circle d-none FormInvalid" id="LogInFormEmailInValid"></i>
+                                        <input type="email" id="LogInFormEmail" class="form-control m-4_5 w-85" placeholder="Correo"> 
+                                        </div>
+                                  </div>
+                                
+                    
+                                    <div class="md-form mb-4">
+                                        <i class="fa fa-lock prefix grey-text"></i>
+                                        <div class="inner-addon right-addon">
+                                                <i class="fas fa-check-circle FormValid d-none" id="LogInFormPassValid"></i>
+                                                <i class="fas fa-times-circle FormInvalid d-none" id="LogInFormPassInValid"></i>
+                                                <a class="fas fa-eye grey-text mr-4" id="ShowPassLogin"></a> 
+                                                <input type="password" id="LogInFormPassword" disabled class="form-control m-4_5 w-85" placeholder="Contraseña">
+                                              
+                                            </div>
+                                            
+                                     </div>
+                                 </div>
+                                <div class="modal-footer d-flex justify-content-center" id="m-footer-login">
+                                    <button class="btn btn-indigo" id="LogInFormBtn" disabled><i class="fas fa-sign-in-alt"></i> Iniciar Sesion</button>
+                                    
+                                </div>
+                                
+                            </div>
+                        </div>
+                    </div>
+                
+                    <!--Register Modal-->
+
+                    <div class="modal fade" id="modalRegisterForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                                <div class="modal-dialog modal-dialog-centered" role="document">
+                                    <div class="modal-content">
+                                        <div class="modal-header text-center">
+                                            <h4 class="modal-title w-100 font-weight-bold">Registro</h4>
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                <span aria-hidden="true">&times;</span>
+                                            </button>
+                                        </div>
+                                        <div class="modal-body mx-3">
+                                        
+                                            <div class="md-form mb-5">
+                                                <i class="fa fa-user prefix grey-text"></i>
+                                                <div class="inner-addon right-addon">
+                                                        <i class="fas fa-check-circle FormValid d-none" id="RegisterFormNombreValid"  ></i>
+                                                        <i class="fas fa-times-circle FormInvalid d-none" id="RegisterFormNombreInValid"></i>
+                                                        <input type="text" id="RegisterFormNombre" class="form-control validate m-4_5 w-85" placeholder="Nombre">
+                                                </div>
+                                            </div>
+                                            <div class="md-form mb-5">
+                                                <i class="fa fa-envelope prefix grey-text"></i>
+                                                <div class="inner-addon right-addon">
+                                                        <i class="fas fa-check-circle FormValid d-none" id="RegisterFormEmailValid"></i>
+                                                        <i class="fas fa-times-circle FormInvalid d-none" id="RegisterFormEmailInValid"></i>
+                                                        <input type="email" id="RegisterFormEmail" class="form-control validate m-4_5 w-85" placeholder="Email">
+                                                </div>
+                                            </div>
+                            
+                                            <div class="md-form mb-4">
+                                                <i class="fa fa-lock prefix grey-text"></i>
+                                                <div class="inner-addon right-addon">
+                                                        <i class="fas fa-check-circle FormValid d-none" id="RegisterFormPassValid"></i>
+                                                        <i class="fas fa-times-circle FormInvalid d-none" id="RegisterFormPassInValid"></i>
+                                                        <a class="fas fa-eye grey-text mr-4" id="ShowPassRegister"></a> 
+                                                        <input type="password" id="RegisterFormPass" class="form-control validate m-4_5 w-85" placeholder="Contraseña">
+                                                </div>
+                                               
+                                                
+                                            </div>
+                            
+                                        </div>
+                                        <div class="modal-footer  d-flex justify-content-center" id="m-footer-registro">
+                                            <button class="btn btn-indigo" disabled id="RegisterFormBtn" ><i class="fas fa-user-plus"></i> Registrarse</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+<!--Formulario de Contacto-->
+                   
+        <div class="modal" id="ContactForm"  tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">     
+            <div class="modal-dialog modal-dialog-centered modal-notify" role="document">
+                <div class="modal-content">
+                    <div class="modal-header text-center">
+                            <h4 class="modal-title w-100 font-weight-bold">Contactanos</h4>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="md-form mb-0">
+                                <i class="far fa-user prefix grey-text"></i>
+                            <input type="text" class="form-control validate" placeholder="Nombre">
+                        </div>
+
+                        <div class="md-form">
+                                <i class="fas fa-marker prefix grey-text"></i>
+                                <input type="text" class="form-control validate" placeholder="Asunto">
+                        </div>
+                       
+                        <div class="md-form">
+                                <i class="fas fa-at prefix  grey-text"></i>
+                                <input type="email" class="form-control " placeholder="Email"/>
+                                
+    
+                                
+                             
+                        </div>
+                        <div class="md-form">
+                                <i class="fas fa-globe-americas prefix grey-text"></i>
+                                <select class="custom-select validate pl-4">
+                                        <option value="SV">El Salvador</option>
+                                        <option value="US">Estados Unidos</option>
+                                        <option value="HN">Honduras</option>
+                                        <option value="GT">Guatemala</option>
+                                        <option value="CR">Costa Rica</option>
+                                        <option value="NG">Nicaragua</option>
+
+                                </select>
+                             </div>
+
+                        <div class="md-form mt-0">
+                                <i class="fas fa-comment prefix grey-text"></i>
+                                <textarea rows="2" cols="15" class="form-control" placeholder="Mensaje"></textarea>
+                        </div>
+                        <div class="text-center">
+                           
+                            <button class="btn btn-indigo align-content-center">Enviar</button>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+
+                    </div>
+                </div>
+                
+            </div>         
+        
+        </div>
+
+
+</article>
+               
+</body>
+</html>
